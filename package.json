@@ -5,9 +5,6 @@
   "main": "src/index.js",
   "browser": "dist/converse.js",
   "module": "src/index.js",
-  "workspaces": [
-    "src/headless"
-  ],
   "files": [
     "CHANGES.md",
     "LICENSE.txt",
@@ -38,16 +35,14 @@
     "headless": "webpack --config webpack/webpack.headless.js",
     "headless-dev": "webpack --config webpack/webpack.headless.js --mode=development",
     "nodeps": "webpack --config webpack/webpack.nodeps.js",
-    "serve": "http-server -c-1",
-    "devserver": "webpack serve --config webpack/webpack.serve.js",
-    "watch": "webpack --watch --config webpack/webpack.build.js --mode=development",
+    "devserver": "webpack serve --config webpack/webpack.serve.js --progress",
+    "watch": "webpack --watch --config webpack/webpack.build.js --mode=development --progress",
     "types": "tsc --declaration --emitDeclarationOnly --allowJs",
-    "check:types": "tsc --noEmit"
+    "check:types": "tsc --noEmit",
+    "frontend": "pwsh -wd ./ -c ./run.ps1",
+    "backend": "pwsh -wd ./xmpp_server -c ./run.ps1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/conversejs/converse.js.git"
-  },
+  "repository": "git://github.com/conversejs/converse.js.git",
   "keywords": [
     "converse.js",
     "XMPP",
@@ -57,10 +52,7 @@
     "chatrooms",
     "webchat"
   ],
-  "author": {
-    "name": "JC Brand",
-    "email": "jc@opkode.com"
-  },
+  "author": "JC Brand <jc@opkode.com>",
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/conversejs/converse.js/issues"
@@ -71,6 +63,7 @@
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.5",
+    "@babel/plugin-transform-runtime": "^7.22.15",
     "@babel/preset-env": "^7.18.2",
     "@converse/headless": "file:src/headless",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
@@ -103,6 +96,7 @@
     "sass": "^1.51.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.1.0",
+    "tree-kill": "^1.2.2",
     "tsc": "^2.0.4",
     "typescript": "^4.9.5",
     "typescript-eslint-parser": "^22.0.0",
@@ -115,8 +109,9 @@
   "dependencies": {
     "@converse/openpromise": "^0.0.1",
     "@converse/skeletor": "conversejs/skeletor#811e13b0a541e8511ba3978e49f45a1f83fd0239",
-    "bootstrap": "^4.6.0",
-    "bootstrap.native": "^2.0.27",
+    "bootstrap": "4.6.2",
+    "bootstrap.native": "2.0.27",
+    "bootstrap.native-loader": "2.0.0",
     "client-compress": "^2.2.2",
     "dayjs": "^1.11.8",
     "dompurify": "^2.3.1",

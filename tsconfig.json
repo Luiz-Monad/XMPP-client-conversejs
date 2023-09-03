@@ -8,8 +8,18 @@
       "src/website.js"
   ],
   "compilerOptions": {
-    "target": "es2016",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    "strict": false,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": true,
+    "skipLibCheck": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
 
     "lib": [
       "ES2020",
@@ -23,15 +33,5 @@
     "outDir": "./dist/types/",
     "baseUrl": "./src/",
 
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "strict": false,
-    "noImplicitAny": false,
-
-    "skipLibCheck": true,
-
-    "moduleResolution": "node",
-    "resolveJsonModule": true
   }
 }

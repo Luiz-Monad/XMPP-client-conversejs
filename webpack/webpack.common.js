@@ -54,6 +54,7 @@ module.exports = {
             }
         }, {
             test: /\.scss$/,
+            exclude: /node_modules/,
             use: [
                 'style-loader',
                 {
@@ -75,9 +76,11 @@ module.exports = {
                             includePaths: [
                                 path.resolve(__dirname, '../node_modules/'),
                                 path.resolve(__dirname, '../src/')
-                            ]
+                            ],
+                            disableDeprecationWarnings: true,
+                            quietDeps: true,
                         },
-                        sourceMap: true
+                        sourceMap: true,
                     }
                 },
             ]
