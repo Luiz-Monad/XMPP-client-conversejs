@@ -16,7 +16,7 @@ module.exports = merge(common, {
         publicPath: '',
         library: {
             name: 'converse',
-            type: 'umd',
+            type: 'cjs',
         },
     },
     mode: "production",

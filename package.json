@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "browser": "dist/converse.js",
   "module": "src/index.js",
+  "workspaces": [
+    "src/headless"
+  ],
   "files": [
     "CHANGES.md",
     "LICENSE.txt",
@@ -26,15 +29,15 @@
     "3rdparty/*.js"
   ],
   "scripts": {
-    "build": "webpack --config webpack/webpack.build.js",
+    "build": "webpack --config webpack/webpack.build.js --progress",
     "lint": "eslint src/**/*.js",
     "test": "karma start karma.conf",
     "cdn": "ASSET_PATH=https://cdn.conversejs.org/dist/ npm run build",
     "clean": "rm -rf node_modules dist *.zip src/headless/dist src/headless/node_modules",
-    "dev": "webpack --config webpack/webpack.build.js --mode=development",
-    "headless": "webpack --config webpack/webpack.headless.js",
-    "headless-dev": "webpack --config webpack/webpack.headless.js --mode=development",
-    "nodeps": "webpack --config webpack/webpack.nodeps.js",
+    "dev": "webpack --config webpack/webpack.build.js --mode=development --progress",
+    "headless": "webpack --config webpack/webpack.headless.js --progress",
+    "headless-dev": "webpack --config webpack/webpack.headless.js --mode=development --progress",
+    "nodeps": "webpack --config webpack/webpack.nodeps.js --progress",
     "devserver": "webpack serve --config webpack/webpack.serve.js --progress",
     "watch": "webpack --watch --config webpack/webpack.build.js --mode=development --progress",
     "types": "tsc --declaration --emitDeclarationOnly --allowJs",
@@ -42,7 +45,10 @@
     "frontend": "pwsh -wd ./ -c ./run.ps1",
     "backend": "pwsh -wd ./xmpp_server -c ./run.ps1"
   },
-  "repository": "git://github.com/conversejs/converse.js.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/conversejs/converse.js.git"
+  },
   "keywords": [
     "converse.js",
     "XMPP",
@@ -52,7 +58,10 @@
     "chatrooms",
     "webchat"
   ],
-  "author": "JC Brand <jc@opkode.com>",
+  "author": {
+    "name": "JC Brand",
+    "email": "jc@opkode.com"
+  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/conversejs/converse.js/issues"
@@ -73,6 +82,7 @@
     "clean-css-cli": "^5.6.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
+    "dotenv": "^16.3.1",
     "eslint": "^8.21.0",
     "fast-text-encoding": "^1.0.3",
     "html-webpack-plugin": "^5.3.2",
@@ -88,6 +98,9 @@
     "karma-webpack": "^5.0.0",
     "mini-css-extract-plugin": "^2.6.0",
     "minimist": "^1.2.6",
+    "pino": "^8.15.1",
+    "pino-http": "^8.5.0",
+    "pino-pretty": "^10.2.0",
     "po-loader": "0.7.0",
     "po2json": "^1.0.0-beta-3",
     "postcss": "^8.4.16",
@@ -96,8 +109,6 @@
     "sass": "^1.51.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.1.0",
-    "tree-kill": "^1.2.2",
-    "tsc": "^2.0.4",
     "typescript": "^4.9.5",
     "typescript-eslint-parser": "^22.0.0",
     "uglify-js": "^3.17.4",

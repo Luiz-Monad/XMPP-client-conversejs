@@ -54,7 +54,6 @@ module.exports = {
             }
         }, {
             test: /\.scss$/,
-            exclude: /node_modules/,
             use: [
                 'style-loader',
                 {
@@ -90,6 +89,7 @@ module.exports = {
                 /src/,
                 /node_modules\/mergebounce/,
                 /node_modules\/lit-html/,
+                /node_modules\/lit-element/,
                 /node_modules\/strophe/,
                 /node_modules\/pluggable/,
                 /node_modules\/@converse/,

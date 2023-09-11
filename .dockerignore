@@ -1,0 +1,10 @@
+demo/**
+dist/**
+docs/**
+node_modules/**
+static_server/node_modules/**
+xmpp_server/**
+docker-compose.yml
+Dockerfile
+*.ps1
+azure-pipelines.yml

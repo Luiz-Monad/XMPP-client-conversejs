@@ -6,17 +6,17 @@
         {
             "label": "xmpp backend",
             "type": "shell",
-            "command": "yarn backend",
+            "command": "npm run backend",
         },
         {
             "label": "node frontend",
             "type": "shell",
-            "command": "yarn frontend",
+            "command": "npm run frontend",
         },
         {
             "label": "webpack devserver",
             "type": "shell",
-            "command": "yarn devserver",
+            "command": "npm run devserver",
         },
     ]
 }
