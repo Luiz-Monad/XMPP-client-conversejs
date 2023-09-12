@@ -15,9 +15,9 @@
 ###
 
 hosts:
-  - messenger
+  - core
 
-loglevel: 5
+loglevel: {{LOG_LEVEL}}
 log_rotate_size: 10485760
 log_rotate_date: ""
 log_rotate_count: 1
@@ -140,7 +140,7 @@ acl:
       - ::FFFF:127.0.0.1/128
   admin:
     user:
-      - "admin@messenger"
+      - "{{ADMIN_USER}}@core"
 
 access_rules:
   local:
@@ -206,7 +206,7 @@ shaper_rules:
 max_fsm_queue: 10000
 
 acme:
-   contact: "mailto:example-admin@example.com"
+   contact: "mailto:admin@{{VIRTUAL_HOST}}"
    ca_url: "https://acme-staging-v02.api.letsencrypt.org/directory"
 
 modules:
@@ -225,7 +225,7 @@ modules:
   mod_fail2ban: {}
   mod_http_api: {}
   mod_http_upload:
-    put_url: https://@HOST@:5080/upload
+    put_url: https://{{VIRTUAL_HOST}}/upload
   mod_last: {}
   mod_mam:
     ## Mnesia is limited to 2GB, better to use an SQL backend
@@ -236,7 +236,7 @@ modules:
     default: never
   mod_mqtt: {}
   mod_muc:
-    host: "conference.@HOST@"
+    host: "conference.{{VIRTUAL_HOST}}"
     access:
       - allow
     access_admin:
