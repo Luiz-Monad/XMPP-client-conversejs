@@ -5,7 +5,9 @@
   "exclude": [
       "src/**/tests/*",
       "src/headless/dist/",
-      "src/website.js"
+      "src/website.js",
+      "static_server/**",
+      "node_modules/**",
   ],
   "compilerOptions": {
     "target": "ESNext",

@@ -87,12 +87,9 @@ module.exports = {
             test: /\.js$/,
             include: [
                 /src/,
-                /node_modules\/mergebounce/,
-                /node_modules\/lit-html/,
-                /node_modules\/lit-element/,
-                /node_modules\/strophe/,
-                /node_modules\/pluggable/,
-                /node_modules\/@converse/,
+            ],
+            exclude: [
+                /node_modules\//,
             ],
             use: {
                 loader: 'babel-loader'
