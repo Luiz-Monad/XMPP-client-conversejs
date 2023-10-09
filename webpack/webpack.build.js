@@ -14,14 +14,8 @@ const plugins = [
         patterns: [
             {from: 'node_modules/strophe.js/src/shared-connection-worker.js', to: 'shared-connection-worker.js'},
             {from: 'sounds', to: 'sounds'},
-            {from: 'images/favicon.ico', to: 'images/favicon.ico'},
-            {from: 'images/custom_emojis', to: 'images/custom_emojis'},
-            {from: 'logo/conversejs-filled-192.png', to: 'images/logo'},
-            {from: 'logo/conversejs-filled-512.png', to: 'images/logo'},
-            {from: 'logo/conversejs-filled-192.svg', to: 'images/logo'},
-            {from: 'logo/conversejs-filled-512.svg', to: 'images/logo'},
-            {from: 'logo/conversejs-filled.svg', to: 'images/logo'},
-            {from: 'logo/conversejs-gold-gradient.svg', to: 'images/logo'},
+            {from: 'images', to: 'images'},
+            {from: 'logo', to: 'images/logo'},
             {from: 'src/shared/styles/webfonts', to: 'webfonts'}
         ]
     }),

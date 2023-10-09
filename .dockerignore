@@ -8,3 +8,4 @@ docker-compose.yml
 Dockerfile
 *.ps1
 azure-pipelines.yml
+.env

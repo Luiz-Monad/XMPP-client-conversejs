@@ -1,7 +1,6 @@
 #!/bin/sh
 
-J=/home/ejabberd
-CTL_ON_CREATE="register $ADMIN_USER core $ADMIN_PW"
+export CTL_ON_CREATE="register $ADMIN_USER $VHOST $ADMIN_PW"
 
-python3 $J/conf/template.py $J/conf/ejabberd.template $J/conf/ejabberd.yml
-exec $J/bin/ejabberdctl "$@"
+python3 $DIR/template.py $DIR/ejabberd.template $DIR/conf/ejabberd.yml
+exec $DIR/bin/ejabberdctl "$@"

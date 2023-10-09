@@ -37,7 +37,7 @@
         "callback-return": "off",
         "camelcase": "off",
         "capitalized-comments": "off",
-        "class-methods-use-this": "off",
+        "class-methods-use-this": "warn",
         "comma-dangle": "off",
         "comma-spacing": "off",
         "comma-style": "off",

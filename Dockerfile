@@ -45,25 +45,29 @@ RUN apk update && apk add --no-cache python3 tini
 USER node
 
 ARG DIR=/home/node/app
-ARG PORT=8000
-
 ENV DIR $DIR
-ENV PORT $PORT
-ENV XMPP_SERVER ws://xmpp:5280/ws
-
 WORKDIR $DIR
 
-COPY --from=base "/build/dist" "./wwwroot"
-COPY --from=base-static "/build/dist/static_server" "."
-COPY --from=base-static "/build/static/node_modules" "./node_modules"
+COPY --from=base /build/dist ./wwwroot
+COPY --from=base-static /build/dist/static_server .
+COPY --from=base-static /build/static/node_modules ./node_modules
+COPY --from=base-static /build/static/wwwroot ./wwwroot
+
+COPY ./static_server/wwwroot/login.html ./login.template
+COPY ./static_server/template.py .
+COPY ./static_server/start.sh .
 
 USER root
-RUN chown node:node $DIR/wwwroot
+RUN chmod +x start.sh
+RUN chown -R node:node $DIR
 USER node
 
-COPY ./static_server/index.html ./index.template
-COPY ./static_server/template.py .
-RUN python3 template.py index.template wwwroot/index.html
+ARG PORT=8000
+
+ENV PORT $PORT
+ENV PROTECT_ROUTES false
+ENV XMPP_SERVER ws://xmpp:5280/ws
 
 EXPOSE $PORT
-ENTRYPOINT ["/sbin/tini", "--", "node", "server.js"]
+ENTRYPOINT ["/sbin/tini", "--", "/home/node/app/start.sh"]
+CMD ["run"]

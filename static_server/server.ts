@@ -6,12 +6,12 @@ const logger = getLogger('server')
 
 import http from 'http'
 import app from './express'
+import config from './config'
 
-const port = process.env.PORT
 const server = http.createServer(app)
 
-server.listen(port, async () => {
-    logger.info(`Listening on port ${port}`)
+server.listen(config.port, async () => {
+    logger.info(`Listening on port ${config.port}`)
 })
 
 const unexpectedErrorHandler = (error: any) => {

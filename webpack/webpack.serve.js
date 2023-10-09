@@ -14,9 +14,8 @@ module.exports = merge(common, {
         static: [ path.resolve(__dirname, '../') ],
         port: 3003,
         // https: {
-        //     key: './certs/chat.example.org.key',
-        //     cert: './certs/chat.example.org.crt',
-        //     requestCert: true,
+        //     key: path.join(__dirname, 'certs', 'key.pem'),
+        //     cert: path.join(__dirname, 'certs', 'cert.pem'),
         // },
     },
     plugins: [

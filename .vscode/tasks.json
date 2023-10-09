@@ -31,7 +31,7 @@
                 "echo": true,
                 "reveal": "always",
                 "focus": false,
-                "panel": "shared",
+                "panel": "dedicated",
                 "showReuseMessage": false,
                 "clear": false
             }
@@ -40,6 +40,19 @@
             "label": "webpack devserver",
             "type": "shell",
             "command": "npm run devserver",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "webpack headless",
+            "type": "shell",
+            "command": "npm run headless",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
